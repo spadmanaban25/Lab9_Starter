@@ -97,6 +97,10 @@
       <button>Console Trace</button>
       <button>Trigger a Global Error</button>
     </section>
+
+    <br><br><br><br>
+    <button id="OnErrorBtn">JS Window On Error Test</button><br><br>
+    <textarea rows="5" cols="40" id="OnError-Output"></textarea>
   </main>
 
   <script>
@@ -131,6 +135,18 @@
         console.log('Calculator computed result or threw an error');
       }
 
+    });
+
+    window.addEventListener('error', (event) => {
+      let textBox = document.getElementById('OnError-Output');
+      textBox.textContent += `${event.message}\n`;
+      console.log(event);
+    });
+
+    let onErrBtn = document.getElementById('OnErrorBtn');
+    onErrBtn.addEventListener('click', () => {
+      eval('badVar');
+      console.log('err');
     });
 
     // Start your code here
