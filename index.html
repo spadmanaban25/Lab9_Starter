@@ -104,7 +104,7 @@
     form.addEventListener('submit', e => {
       e.preventDefault();
       try {
-        let output = document.querySelector('output');
+        var output = document.querySelector('output');
         let firstNum = document.querySelector('#first-num').value;
         let secondNum = document.querySelector('#second-num').value;
         let operator = document.querySelector('#operator').value;
@@ -123,7 +123,7 @@
         output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
 
       } catch (err) {
-
+        output.innerHTML = '';
         console.log('Error Occurred');
         console.error(err);
 
